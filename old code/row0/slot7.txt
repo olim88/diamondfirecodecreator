@@ -1,0 +1,6 @@
+def.Func.CreateCoin() #needs ~coinLocation and ~coinBlock to be set
+action.Game.SpawnArmorStand(~coinLocation,~coinBlock:18,visibility="Invisible (No hitbox)")
+var.AppendValue(%defaultCurrentCoinLocations,~coinLocation)
+var.AppendValue(%defaultCurrentCoinUUIDS,gv("UUID","LastEntity"))
+action.Player.SetEntityHidden(gv("UUID","LastEntity")@AllPlayers
+action.Player.SetEntityHidden(gv("UUID","LastEntity"),hidden="Disable")

@@ -1,0 +1,23 @@
+def.Func.GenerateArena()#randomly place platform inside 6x6 of 8x8 areas
+var.CreateList($coinSpawnLocations)
+var.=(~baseYOfset,59)
+var.CreateList(~AreaSegments,6,8,12,16)
+var.CreateList(~blockTypes,item("minecraft:coal_block"),item("minecraft:iron_block"),item("minecraft:gold_block"),item("minecraft:diamond_block"))
+var.CreateList(~coinTypes,item(json={id:"minecraft:player_head",tag:{display:{Name:'{"italic":false,"color":"yellow","text":"Coin (bronze)"}'},CustomModelData:0,HideFlags:127,SkullOwner:{Name:"DF-HEAD",Id:[I;-2003014099,-1821489972,-1528331437,319427101],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDJlZWM1YzVkNTAzMDJmZjEwZDBiZGI2MmQ3OWU2N2EwYWIxMTAxNjk2YWUyN2VmOWQ4MmIzNzk0M2MyYTY1YyJ9fX0="}]}}},Count:1b}),item(json={id:"minecraft:player_head",tag:{CustomModelData:0,display:{Name:'{"italic":false,"color":"yellow","text":"Coin (silver)"}'},HideFlags:127,SkullOwner:{Name:"DF-HEAD",Id:[I;-1931859851,327632932,-1867916459,2059050965],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTM0YjI3YmZjYzhmOWI5NjQ1OTRiNjE4YjExNDZhZjY5ZGUyNzhjZTVlMmUzMDEyY2I0NzFhOWEzY2YzODcxIn19fQ=="}]}}},Count:1b}),item(json={id:"minecraft:player_head",tag:{CustomModelData:0,display:{Name:'{"italic":false,"color":"yellow","text":"Coin (gold)"}'},HideFlags:127,SkullOwner:{Name:"DF-HEAD",Id:[I;-1085289683,-502249623,-1269974723,720371907],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjBhN2I5NGM0ZTU4MWI2OTkxNTlkNDg4NDZlYzA5MTM5MjUwNjIzN2M4OWE5N2M5MzI0OGEwZDhhYmM5MTZkNSJ9fX0="}]}}},Count:1b}),item(json={id:"minecraft:player_head",tag:{display:{Name:'{"italic":false,"color":"yellow","text":"Coin (emerald)"}'},CustomModelData:0,HideFlags:127,SkullOwner:{Name:"DF-HEAD",Id:[I;-677382409,1220037252,-1222063814,1384581065],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTFlZGYxNmM0MWQxOTRjNzMxZTMzZmRkOWMyYjllNWVkZDQ1MGJjMzNjYTcwNDM2NTI4YTA1Mzg5ZDdmY2RhMiJ9fX0="}]}}},Count:1b}))
+var.RandomNumber(~perlinSeed,0,1000)
+var.=(~blockIndex,0)
+for.ForEach(~segmentSize,~AreaSegments)
+{
+var.+=(~blockIndex)
+var.GetListValue(~currentBlock,~blockTypes,~blockIndex)
+var.=(~platformLocation)
+var.=(~platformMaxWidth,4)
+var.-(~platformMaxXOfset,~segmentSize,~platformMaxWidth)
+var.=(~platformWidth)
+var.=(~platformMaxLength,3)
+var.-(~platformMaxZOfset,~segmentSize,~platformMaxLength)
+var.=(~platformLength)
+var./(~segmentCount,48,~segmentSize)
+var.-=(~segmentCount)
+call.Func.GenLoop()
+}

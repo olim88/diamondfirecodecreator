@@ -1,0 +1,8 @@
+{
+    "count=":"int",
+    "name=":"str",
+    "lore=":"str",
+    "unbreakable=":"bool",
+    "enchantments=":"list",
+    "hideFlags=":"bool"
+}

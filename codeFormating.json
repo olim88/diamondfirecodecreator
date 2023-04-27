@@ -1,0 +1,41 @@
+{
+    "instructionFormats":{
+        "action.Player.":{"Maincolour":[84,252,84],"takesArgs":true,"actionTitle":"PLAYER ACTION","actionColour":[12,12,12]},
+        "if.Player.":{"Maincolour":[252,168,0],"takesArgs":true,"actionTitle":"IF PLAYER","actionColour":[12,12,12]},
+        "ifnot.Player.":{"Maincolour":[252,168,0],"takesArgs":true,"actionTitle":"IF PLAYER","actionColour":[12,12,12],"not":true},
+        "control.":{"Maincolour":[84,84,252],"takesArgs":true,"actionTitle":"CONTROL","actionColour":[12,12,12]},
+        "var.":{"Maincolour":[252,252,84],"takesArgs":true,"actionTitle":"SET VARIABLE","actionColour":[12,12,12]},
+        "event.Entity.":{"Maincolour":[252,84,84],"takesArgs":false,"actionTitle":"ENTITY EVENT","actionColour":[12,12,12]},
+        "event.Player.":{"Maincolour":[84,252,252],"takesArgs":false,"actionTitle":"PLAYER EVENT","actionColour":[12,12,12]},
+        "def.Func.":{"Maincolour":[84,252,252],"takesArgs":true,"codeBlockID":"FUNCTION","actionColour":[200,200,50]},
+        "if.Entity.":{"Maincolour":[0,168,0],"takesArgs":true,"actionTitle":"IF ENTITY","actionColour":[12,12,12]},
+        "ifnot.Entity.":{"Maincolour":[0,168,0],"takesArgs":true,"actionTitle":"IF ENTITY","actionColour":[12,12,12],"not":true},
+        "action.Entity.":{"Maincolour":[252,84,84],"takesArgs":true,"actionTitle":"ENTITY ACTION","actionColour":[12,12,12]},
+        "if.var.":{"Maincolour":[252,168,0],"takesArgs":true,"actionTitle":"IF VARIABLE","actionColour":[12,12,12]},
+        "ifnot.var.":{"Maincolour":[252,168,0],"takesArgs":true,"actionTitle":"IF VARIABLE","actionColour":[12,12,12],"not":true},
+        "object.Select.":{"Maincolour":[252,84,252],"takesArgs":true,"actionTitle":"SELECT OBJECT","actionColour":[12,12,12]},
+        "action.Game.":{"Maincolour":[252,84,84],"takesArgs":true,"actionTitle":"GAME ACTION","actionColour":[12,12,12]},
+        "else.":{"Maincolour":[0,168,168],"takesArgs":false,"codeBlockID":"ELSE"},   
+        "call.Proc.":{"Maincolour":[0,168,0],"takesArgs":true,"codeBlockID":"START PROCESS","actionColour":[200,200,50]},
+        "for.":{"Maincolour":[84,252,84],"takesArgs":true,"actionTitle":"REPEAT","actionColour":[12,12,12]},
+        "while.Player.":{"Maincolour":[84,252,84],"takesArgs":true,"actionTitle":"IF PLAYER","actionColour":[12,12,12],"mainBlock":"REPEAT","mainAction":"while"},
+        "while.Entity.":{"Maincolour":[84,252,84],"takesArgs":true,"actionTitle":"IF ENTITY","actionColour":[12,12,12],"mainBlock":"REPEAT","mainAction":"while"},
+        "while.Var.":{"Maincolour":[84,252,84],"takesArgs":true,"actionTitle":"IF VARIABLE","actionColour":[12,12,12],"mainBlock":"REPEAT","mainAction":"while"},
+        "while.Game.":{"Maincolour":[84,252,84],"takesArgs":true,"actionTitle":"IF GAME","actionColour":[12,12,12],"mainBlock":"REPEAT","mainAction":"while"},
+        "if.Game.":{"Maincolour":[252,84,84],"takesArgs":true,"actionTitle":"IF GAME","actionColour":[12,12,12],"not":true},
+        "ifnot.Game.":{"Maincolour":[252,84,84],"takesArgs":true,"actionTitle":"IF GAME","actionColour":[12,12,12],"not":true},
+        "def.Proc.":{"Maincolour":[84,252,84],"takesArgs":true,"codeBlockID":"PROCESS","actionColour":[200,200,50]},
+        "call.Func.":{"Maincolour":[84,84,252],"takesArgs":true,"codeBlockID":"CALL FUNCTION","actionColour":[200,200,50]},
+        "{":{"Maincolour":[211,211,223],"takesArgs":false,"open":"open"},
+        "}":{"Maincolour":[211,211,223],"takesArgs":false,"open":"close"}
+        },  
+    "argumentFormats":{
+        "location":{"needVars":["x","y","z","pitch","yaw"],"optionalVars":[],"colour":[84,252,84]},
+        "sound":{"needVars":["name","pitch","volume"],"initialSugestion":"sound","optionalVars":[],"colour":[84,84,252]},
+        "vector":{"needVars":["x","y","z"],"optionalVars":[],"colour":[41,252,168]},
+        "potion":{"needVars":["name","duration","amplitude"],"initialSugestion":"potion","optionalVars":[],"colour":[252,84,125]},
+        "gv":{"needVars":["name","target"],"initialSugestion":"gv","optionalVars":[],"colour":[252,209,125]},
+        "particle":{"needVars":["name"],"initialSugestion":"particle","optionalVars":["amount=","horizontal=","vertical="],"conditionalVars":["Motion=","MotionVariation=","material=","Color=","ColorVariation=","Size=","SizeVariation="],"colour":[168,84,252]},
+        "item":{"needVars":["blockID"],"initialSugestion":"item","optionalVars":["count=","name=","lore=","unbreakable=","enchantments=","hideFlags=","json="],"colour":[121,121,119]}
+    }
+}

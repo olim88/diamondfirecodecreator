@@ -1,0 +1,3 @@
+def.Func.Sds;alkfj()
+action.Player.SetHotbar(particle("Enchant",Motion=[23,12,32])) 
+action.Player.GiveItems(item("minecraft:stone",enchantments=[["minecraft:lure",3],["minecraftsharpness",3]]),item("minecraft:stone"))

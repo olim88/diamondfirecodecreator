@@ -1,0 +1,3 @@
+#set up player
+event.Player.Join
+action.Player.SpectatorMode()

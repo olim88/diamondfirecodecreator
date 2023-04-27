@@ -1,0 +1,1 @@
+/home/olim/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/Quilt/.minecraft/

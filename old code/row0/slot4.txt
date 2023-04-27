@@ -1,0 +1,24 @@
+def.Func.GenMain() #no line space
+var.x(~basePosX,~segmentSize,~countX)
+var.x(~basePosZ,~segmentSize,~countZ)
+var.RandomNumber(~ofsetX,1,~platformMaxXOfset)
+var.RandomNumber(~ofsetZ,1,~platformMaxZOfset)
+var.RandomNumber(~platformWidth,2,~platformMaxWidth)
+var.RandomNumber(~platformLength,2,~platformMaxLength)
+var.+(~x,~basePosX,~ofsetX)
+var.+(~z,~basePosZ,~ofsetZ)
+var.SetAllCoords(~platformLocation,~x,~baseYOfset,~z)
+var.PerlinNoise(~ofsetY,~platformLocation,~perlinSeed:6)
+var.x(~ofsetY,~ofsetY,5)#can be up to 5 blocks movment i think
+var.ShiftOnAxis(~platformLocation,~ofsetY,coordinate="Y")
+var.ShiftAllAxes(~platformLocationEnd,~platformLocation,~platformWidth,0,~platformLength)
+ifnot.var.IsNear(~platformLocation,location(1,60,1),3,shape="Cube",) #if it is not on top of the spawn platform
+{
+action.Game.SetRegion(~currentBlock,~platformLocation,~platformLocationEnd)
+var.GetListValue(~coinBlock,~coinTypes,~blockIndex)
+var.GetCenterLoc(~coinLocation,~platformLocation,~platformLocationEnd)
+var.CreateList(~coinList,~coinLocation,~coinBlock)
+var.AppendValue($coinSpawnLocations,~coinList)
+}
+control.Wait(0)
+

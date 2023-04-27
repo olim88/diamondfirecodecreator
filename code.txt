@@ -1,0 +1,4 @@
+ def.Func.SetUpPlayer()
+action.Player.ParticleSphere(particle("Enchant",amount=5),gv("Location"),5)
+action.Player.SendTitle("&5Welcome To Teleport Parkor")
+action.Player.PlaySound(sound("Totem Use"))
