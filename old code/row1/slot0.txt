@@ -1,7 +1,0 @@
-def.Func.SendMessage()
-#action.Player.GiveItems(,item("minecraft:stone",count=12,enchantments=[["minecraft:lure"],["minecraft:lure",23]]):23)
-#action.Player.SendMessage(12,"test",alignmentMode="fic",item("minecraft:stone"))
-while.player.IsGrounded()
-{
-
-}

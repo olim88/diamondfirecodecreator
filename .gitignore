@@ -2,3 +2,5 @@
 /saveCodePath.txt
 saveCode/
 "old code"/
+.vscode/
+__pycache__/
