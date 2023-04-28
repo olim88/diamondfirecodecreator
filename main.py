@@ -1,6 +1,7 @@
 #custom coding for df
 import math as maths
 import os
+import shutil
 import time
 import random
 import pyperclip
@@ -35,6 +36,19 @@ if not(os.path.isdir(mincraftFolder)):
 
 HotbarFile = mincraftFolder+"hotbar.nbt"
 CodeToolsFile = "dfcode.json"
+#find the path for the saved code 
+if os.path.isfile("saveCodePath.txt"):
+    with open("saveCodePath.txt","r") as f:
+        savedCodePath = f.read().rstrip("\n")
+    if not(os.path.isdir(savedCodePath)):
+        raise Exception( "can not find save code directory specified in the \"saveCodePath.txt\"please coppy the savedCodeClean folder to where you want to save the code and change the path in the \"saveCodePath.txt\" file")
+
+else:
+    savedCodePath = "saveCode"
+    if not(os.path.isdir(savedCodePath)):
+        print("creating default save code folder")
+        shutil.copy("savedCodeClean",savedCodePath)
+
 fileHandling.CodeTools.loadFileData(CodeToolsFile)
 EventBlocks = fileHandling.CodeTools.LoadIdsForBlock()
 win = pygame.display.set_mode(WinSize,pygame.HWSURFACE | pygame.DOUBLEBUF | pygame.SRCALPHA | pygame.RESIZABLE)
@@ -115,9 +129,9 @@ class GUI():
                 self.saveText()
             if self.CompileToHotBarButton.click:
                 self.saveText()
-                parse.parser("saveCode/row"+str(self.currentRow)+"/slot"+str(self.currentSlot)+".txt",self.currentRow,self.currentSlot)
+                parse.parser(savedCodePath+"/row"+str(self.currentRow)+"/slot"+str(self.currentSlot)+".txt",self.currentRow,self.currentSlot)
                 try:
-                    parse.parser("saveCode/row"+str(self.currentRow)+"/slot"+str(self.currentSlot)+".txt",self.currentRow,self.currentSlot)
+                    parse.parser(savedCodePath+"/row"+str(self.currentRow)+"/slot"+str(self.currentSlot)+".txt",self.currentRow,self.currentSlot)
                 except Exception as e:
                     self.confirmGUI = confirmPopupMenu(str(e))
             if self.LoadFromHotBarButton.click:
@@ -141,12 +155,12 @@ class GUI():
         if row == None:
             row = self.currentRow
             slot = self.currentSlot
-        with open("saveCode/row"+str(row)+"/slot"+str(slot)+".txt","w")as f:
+        with open(savedCodePath+"/row"+str(row)+"/slot"+str(slot)+".txt","w")as f:
                 f.write(codeInput.currentCode)    
     def loadText (self):
         '''loads the text the text file of the current slot'''
-        if os.path.exists("saveCode/row"+str(self.currentRow)+"/slot"+str(self.currentSlot)+".txt"):
-            with open("saveCode/row"+str(self.currentRow)+"/slot"+str(self.currentSlot)+".txt","r")as f:                
+        if os.path.exists(savedCodePath+"/row"+str(self.currentRow)+"/slot"+str(self.currentSlot)+".txt"):
+            with open(savedCodePath+"/row"+str(self.currentRow)+"/slot"+str(self.currentSlot)+".txt","r")as f:                
                 codeInput.clearcache()
                 codeInput.currentCode = f.read()
                 codeInput.renderToSurface()

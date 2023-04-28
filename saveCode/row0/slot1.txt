@@ -1,4 +1,0 @@
-#take chat messages input
-event.Player.Command
-#if the game is running and its their turn
-if.var.=(
